@@ -1,0 +1,158 @@
+#Hi whoever is viewing this! I just wanted to give you some insight to what this is. This is a compilation of all of the "beginner" prokjects that are common among people when 
+#first learning to code, all I did aside from actually writing them was put them into one working file!
+
+
+from random import shuffle
+import random
+from datetime import date
+import datetime
+import math
+def choice():
+    game = input("Which program would you like to run: calculator, Random Team Generator, Guessing Game, Time, Today's Date, or Leap Year(tell's whether or it is a leap year): ")
+    if game == "calculator":
+        operator = input('What basic mathematical operation would you like to do? ')
+        if operator != "area":
+            num1 = float(input('What is the first number? '
+                           )
+                     )
+        if operator != "area":
+            num2 = float(input("What is the second number? (Will Not Be Used for Factorials) "
+                           )
+                     )
+        if operator == '+' or operator == 'add' or operator == 'addition':
+            print(str(num1 + num2
+                      )
+                  )
+        elif operator == '-' or operator == 'subtract' or operator == 'subtraction':
+            print(str(num1 - num2
+                      )
+                  )
+        elif operator == '/' or operator == 'divide' or operator == 'division':
+            print(str(num1 / num2
+                      )
+                  )
+        elif operator == '*' or operator == 'multiply' or operator == 'multiplication':
+            print(str(num1 * num2
+                      )
+                  )
+        elif operator == '^' or operator == 'exponent':
+            print(str(num1 ** num2
+                      )
+                  )
+        elif operator == '!':
+            stored_num = 1
+            for i in range(int(num1), 0, -1
+                           ):
+                stored_num *= i
+            print(stored_num
+                  )
+        elif operator == "area":
+            type_of_area = input("What shape would you like the area of?: ")
+            if type_of_area == "square":
+                side_length = float(input("What is the length of one of the sides?: "))
+                side_length **= 2
+                print(side_length)
+            elif type_of_area == "rectangle":
+                length = float(input("What is the Length of the rectangle?: "))
+                width = float(input("What is the Width of the rectangle?: "))
+                print(float(length * width))
+            elif type_of_area == "triangle":
+                base = float(input("What is the Base of the triangle?: "))
+                height = float(input("What is the Height of the triangle?: "))
+                print(0.5 * base * height)
+            elif type_of_area == "circle":
+                radius = float(input("What is the Radius of the circle?: "))
+                decimal = int(input("How many decimals would you like?: "))
+                radius = (radius ** 2) * math.pi
+                radius = round(radius,decimal)
+                print(radius)
+
+        else:
+            print('You put a function that is not defined!')
+    elif game == "Random Team Generator":
+        num = input('How Many Players?: '
+                    )
+        names = input('Names of All Players Seperated By Spaces: '
+                      )
+        names = names.split(' '
+                            )
+        # 4 makes the names into a list
+        num = int(num
+                  )
+        # turns how many players into a number
+        len_friends = len(names
+                          )
+        # finds the length of the list of friends
+        shuffle(names
+                )
+        # shuffles the list to make a new list in a random order
+        half = len_friends / 2
+        half = int(half
+                   )
+        # this turns the halfpoint number into an integer to find the indicy of the halfway point in the list
+        team1 = names[0:half
+                ]
+        # makes a new list containing the names from the first half of the shuffled names list
+        team2 = names[half:
+                ]
+        print('Team 1 is: ' + str(team1
+                                  )
+              )
+        print('Team 2 is: ' + str(team2
+                                  )
+              )
+    elif game == "Guessing Game":
+        yourName = input("What is your name?: "
+                         )
+        guessNum = int(input("How many guesses would you like?: "
+                             )
+                       )
+        guessFirst = 1
+        [umar, usman, ariq, momen, aryan, kinify, minify, yambofy, mohamed, ]
+        guess = input("What name am I thinking of?: "
+                      )
+        # while guessFirst < guessNum:
+        while guess != name and guessFirst < guessNum:
+            guessFirst += 1
+            guess = input("What name am I thinking of?: "
+                          )
+        if guess == name:
+            print("Congratulations " + yourName + ", you finally guessed " + name + "!"
+                  )
+        else:
+            print("You Suck " + yourName + "!"
+                  )
+    elif game == "Today's Date":
+        todays_date = date.today()
+        current_time = datetime.datetime.now()
+        tdy = str(todays_date.year)
+        tdm = str(todays_date.month)
+        tdd = str(todays_date.day)
+        print(tdm + "/" + tdd + "/" + tdy)
+    elif game == "Time":
+        todays_date = date.today()
+        current_time = datetime.datetime.now()
+        ddnh = (datetime.datetime.now())
+        ddnh = str(ddnh.hour)
+        ddnm = (datetime.datetime.now())
+        ddnm = str(ddnm.minute)
+        ddns = (datetime.datetime.now())
+        ddns = str(ddns.second)
+        print(ddnh + ":" + ddnm + ":" + ddns)
+    elif game == "Leap Year":
+        year = input("What year would you like to know if it is a Leap Year?: ")
+        year = int(year)
+        if year % 4 == 0:
+            if year % 400 == 0:
+                print(str(year),"is a leap year.")
+            elif year % 100 == 0:
+                print(str(year),"is NOT a leap year.")
+            else:
+                print(str(year),"is a leap year.")
+        else:
+            print(str(year),"is NOT a leap year.")
+    else:
+        print("You did not pick a defined function!"
+              )
+    pass
+
